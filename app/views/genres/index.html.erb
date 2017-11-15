@@ -9,3 +9,14 @@
 <% else %>
   <p>There are no Genres!!!!</p>
 <% end %>
+
+
+<% if @reviews.any? %>
+  <% @reviews.each do |review| %>
+  <ul>
+    <li><%= link_to review.name, review_path(genre) %></li>
+  </ul>
+  <% end %>
+<% else %>
+  <p>There are no reviews!!!!</p>
+<% end %>
