@@ -9,12 +9,16 @@ class Book < ActiveRecord::Base
 
   def find_average
     ratings = Review.in_book(self.id)
-    sum = 0
-    ratings.each do |rating|
-      sum = rating.rating += sum
-    end
-    if sum / ratings.length >= 4
-      return true
+    if ratings.length > 0
+      sum = 0
+      ratings.each do |rating|
+        sum = rating.rating += sum
+      end
+      if (sum / ratings.length) >= 4
+        return true
+      else
+        return false
+      end
     else
       return false
     end

@@ -2,12 +2,11 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @genre = Genre.find(params[:genre_id])
   end
 
   def new
     @genre = Genre.find(params[:genre_id])
-    @book = Book.new
+    @book = @genre.books.new
   end
 
   def create
@@ -44,6 +43,6 @@ class BooksController < ApplicationController
 private
 
   def book_params
-    params.require(:book).permit(:name, :bio, :genre_id)
+    params.require(:book).permit(:name, :bio)
   end
 end

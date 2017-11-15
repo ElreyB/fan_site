@@ -10,11 +10,12 @@
   <p>There are no Genres!!!!</p>
 <% end %>
 
+<h2>Books</h2>
 
-<% if @books.any? %>
-  <% @books.each do |book| %>
+<% if @popular_books.any? %>
+  <% @popular_books.each do |book| %>
   <ul>
-    <li><%= link_to book.name, book_path(genre) %></li>
+    <li><%= link_to book.name, book_path(book) %></li>
   </ul>
   <% end %>
 <% else %>

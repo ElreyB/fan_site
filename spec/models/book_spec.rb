@@ -19,6 +19,7 @@ describe Book do
     third_review = Review.create({rating: 2, review: "String", book_id: terrible_book.id})
     fourth_review = Review.create({rating: 2, review: "String cheese.", book_id: terrible_book.id})
     both_books = [popular_book, terrible_book]
+    
     expect(Book.most_popular(both_books)).to eq [popular_book]
   end
 
