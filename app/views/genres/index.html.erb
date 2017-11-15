@@ -1,1 +1,11 @@
 <h1>Genres</h1>
+
+<% if @genres.any? %>
+  <% @genres.each do |genre| %>
+  <ul>
+    <li><%= link_to genre.name, genre_path(genre) %></li>
+  </ul>
+  <% end %>
+<% else %>
+  <p>There are no Genres!!!!</p>
+<% end %>
