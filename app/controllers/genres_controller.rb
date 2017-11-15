@@ -6,6 +6,7 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
+    @books = Book.find_average()
   end
 
 

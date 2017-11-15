@@ -13,8 +13,21 @@ class Book < ActiveRecord::Base
     ratings.each do |rating|
       sum = rating.rating += sum
     end
-    return sum / ratings.length
+    if sum / ratings.length >= 4
+      return true
+    else
+      return false
+    end
   end
 
+  def self.most_popular(books)
+    popular_books = []
+    books.each do |book|
+      if book.find_average == true
+        popular_books.push(book)
+      end
+    end
+    return popular_books
+  end
 
 end

@@ -11,10 +11,10 @@
 <% end %>
 
 
-<% if @reviews.any? %>
-  <% @reviews.each do |review| %>
+<% if @books.any? %>
+  <% @books.each do |book| %>
   <ul>
-    <li><%= link_to review.name, review_path(genre) %></li>
+    <li><%= link_to book.name, book_path(genre) %></li>
   </ul>
   <% end %>
 <% else %>
