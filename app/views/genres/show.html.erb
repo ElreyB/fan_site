@@ -2,7 +2,10 @@
 
 <%= link_to "Add Book", new_genre_book_path(@genre) %>
 
+
+
 <% if @genre.books.any? %>
+
   <ul>
     <h5>Alphabetically</h5>
     <% @genre.books.abc_sort.each do |book| %>
@@ -11,6 +14,25 @@
       </li>
     <% end %>
   </ul>
+
+  <ul>
+  <h5>Oldest to Newest</h5>
+  <% @genre.books.oldest_first.each do |book| %>
+    <li>
+      <%= link_to book.name, genre_book_path(@genre, book) %>
+    </li>
+  <% end %>
+</ul>
+
+<ul>
+  <h5>Newest to Oldest</h5>
+  <% @genre.books.newest_first.each do |book| %>
+    <li>
+      <%= link_to book.name, genre_book_path(@genre, book) %>
+    </li>
+  <% end %>
+</ul>
+
 <% else %>
   <p>No books for this <%= @genre.name %></p>
 <% end %>
