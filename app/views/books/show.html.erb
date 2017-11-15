@@ -1,0 +1,14 @@
+<h1><%= @book.name %></h1>
+
+<% if @book.reviews.any? %>
+  <ul>
+    <% @book.reviews.each do |review| %>
+      <li>
+        <p>review.rating</p>
+        <p>review.review</p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No reviews for this <%= @book.name %></p>
+<% end %>
