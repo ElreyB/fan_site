@@ -21,3 +21,11 @@
 <% else %>
   <p>There are no reviews!!!!</p>
 <% end %>
+
+<div class="well">
+  <% if @random_genre.books.any? %>
+    <%= link_to @random_genre.books[rand(@random_genre.books.length)].name, book_path(@random_genre.books[rand(@random_genre.books.length)]) %>
+  <% else %>
+    <p>No favorite book today!!!</p>
+  <% end %>
+</div>
