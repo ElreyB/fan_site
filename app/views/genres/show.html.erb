@@ -1,12 +1,10 @@
 <h1><%= @genre.name %></h1>
 
-
-
 <%= link_to "Add Book", new_genre_book_path(@genre) %>
 
 <% if @genre.books.any? %>
   <ul>
-    <% @genre.books.each do |book| %>
+    <% @genre.books.abc_sort.each do |book| %>
       <li>
         <%= link_to book.name, genre_book_path(book) %>
       </li>
