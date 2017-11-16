@@ -39,4 +39,5 @@ $(document).ready(function(){
     e.preventDefault();
   });
 
+  $('.dropdown-toggle').dropdown()
 });

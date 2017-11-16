@@ -1,3 +1,23 @@
+<% content_for(:navbar) do %>
+<div class="dropdown">
+  <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Genres
+    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+  </button>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <% if @genres.any? %>
+      <% @genres.each do |genre| %>
+        <p class="dropdown-item"><%= link_to genre.name, genre_path(genre) %></p>
+      <% end %>
+    <% else %>
+      <p>There are no Genres!!!!</p>
+    <% end %>
+  </div>
+</div>
+
+<% end %>
+
 <div class="well home">
   <% if @random_genre.books.any? %>
   <h4>Book of the day:</h4>
@@ -12,17 +32,11 @@
   <p> <%= @random_review.review %> </p>
 </div>
 
-<h1>Genres</h1>
 
-<% if @genres.any? %>
-  <% @genres.each do |genre| %>
-  <ul>
-    <li><%= link_to genre.name, genre_path(genre) %></li>
-  </ul>
-  <% end %>
-<% else %>
-  <p>There are no Genres!!!!</p>
-<% end %>
+
+
+
+
 
 <h2>Popular Books</h2>
 
