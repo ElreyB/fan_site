@@ -1,6 +1,4 @@
-<h1>Genres</h1>
-
-<div class="well">
+<div class="well home">
   <% if @random_genre.books.any? %>
   <h4>Book of the day:</h4>
     <%= link_to @random_genre.books[rand(@random_genre.books.length)].name, book_path(@random_genre.books[rand(@random_genre.books.length)]) %>
@@ -8,6 +6,8 @@
     <p>No favorite book today - check back later!</p>
   <% end %>
 </div>
+
+<h1>Genres</h1>
 
 <% if @genres.any? %>
   <% @genres.each do |genre| %>

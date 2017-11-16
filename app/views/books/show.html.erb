@@ -1,9 +1,13 @@
-<h1><%= @book.name %></h1>
+<% content_for(:navbar) do %>
+  <li><%= link_to "Add Review", new_book_review_path(@book) %></li>
+<% end %>
 
+<h1 class="book-header"><%= @book.name %></h1>
+<h3 class="book-header">Reviews:</h3>
 <% if @book.reviews.any? %>
   <ul>
     <% @book.reviews.each do |review| %>
-      <li>
+      <li class="well">
         <p> <%= review.rating %></p>
         <p> <%= review.review %> </p>
         <p><%= link_to "Edit", edit_book_review_path(@book, review) %></p>
@@ -16,6 +20,3 @@
 <% else %>
   <p>No reviews for this <%= @book.name %></p>
 <% end %>
-
-<%= link_to "Add Review", new_book_review_path(@book) %>
-<br>

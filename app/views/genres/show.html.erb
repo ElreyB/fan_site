@@ -1,9 +1,9 @@
+<% content_for(:navbar) do %>
+  <li><%= link_to "Add Book", new_genre_book_path(@genre) %></li>
+<% end %>
+
+
 <h1><%= @genre.name %></h1>
-
-<%= link_to "Add Book", new_genre_book_path(@genre) %>
-
-
-
 <% if @genre.books.any? %>
 
   <ul>
@@ -36,7 +36,3 @@
 <% else %>
   <p>No books for this <%= @genre.name %></p>
 <% end %>
-
-
-
-<%= link_to "All Genres", genres_path %>

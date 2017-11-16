@@ -11,6 +11,46 @@
   color: white;
 }
 
-.well {
+.navbar-header {
+  margin-top: 30px;
+}
+
+.navbar-right {
+  margin-top: 30px;
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+a {
+  color: black;
+}
+
+.home {
   float: right;
+  background-color: grey;
+  color: white;
+  width: 20%;
+}
+
+a:hover {
+  text-decoration: none;
+  color: teal;
+}
+
+ul {
+  list-style: none;
+}
+
+.well {
+  width: 50%;
+  margin-right: 20%;
+  margin-left: 23%;
+}
+
+.book-header {
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: grey;
 }
