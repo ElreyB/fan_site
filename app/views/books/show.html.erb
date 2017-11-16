@@ -1,5 +1,6 @@
 <% content_for(:navbar) do %>
   <li><%= link_to "Add Review", new_book_review_path(@book) %></li>
+  <li><a href="#" id="admin">Admin</a></li>
 <% end %>
 
 
@@ -10,13 +11,17 @@
   <ul>
     <% @book.reviews.each do |review| %>
       <li class="well reviews">
+        <span class="admin hide">
+          <p><%= link_to "Edit", edit_book_review_path(@book, review) %> |
+            <%= link_to "Delete", book_review_path(@book, review),
+            :data => {:confirm => "You sure?",
+              :method => "delete"} %></p>
+            </span>
         <p><%= review.name%></p>
         <% review.rating.times{%> <span class="glyphicon glyphicon-star" aria-hidden="true"></span><%}%>
+        <hr>
         <p> <%= review.review %> </p>
-        <p><%= link_to "Edit", edit_book_review_path(@book, review) %></p>
-        <p><%= link_to "Delete", book_review_path(@book, review),
-                         :data => {:confirm => "You sure?",
-                                   :method => "delete"} %></p>
+
       </li>
     <% end %>
   </ul>

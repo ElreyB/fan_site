@@ -40,4 +40,10 @@ $(document).ready(function(){
   });
 
   $('.dropdown-toggle').dropdown()
+
+  $(document).on("click", "#admin", function(e){
+    hideAll();
+    $(".admin").toggleClass("hide");
+    e.preventDefault();
+  });
 });
