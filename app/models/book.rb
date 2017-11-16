@@ -34,4 +34,30 @@ class Book < ActiveRecord::Base
     return popular_books
   end
 
+  def self.find_popular_user
+    find_popular_name
+  end
+
+private
+
+  def self.grab_names
+    reviews = Review.all
+    names = reviews.map do |review|
+      review.name
+    end
+    names
+  end
+
+  def self.names_with_count
+    names = grab_names
+    names.reduce(Hash.new(0)) do |name_count, name|
+      name_count[name] += 1
+      name_count
+    end
+  end
+
+  def self.find_popular_name
+    names = names_with_count
+    names.key(names.values.max)
+  end
 end
