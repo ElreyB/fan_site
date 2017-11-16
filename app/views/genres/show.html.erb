@@ -1,14 +1,10 @@
-<% content_for(:navbar) do %>
-  <li><%= link_to "Add Book", new_genre_book_path(@genre) %></li>
-<% end %>
-
-
 <h1><%= @genre.name %></h1>
 <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="#" class="alphabetically">Alphabetically</a></li>
     <li class="breadcrumb-item"><a href="#" class="oldest_first">Oldest to Newest</a></li>
-    <li class="breadcrumb-item" aria-current="page"><a href="#" class="newest_first">Newest to Oldest</a></li>
+    <li class="breadcrumb-item"><a href="#" class="newest_first">Newest to Oldest</a></li>
+    <li class="breadcrumb-item add"><%= link_to "Add Book", new_genre_book_path(@genre) %></li>
   </ol>
 </nav>
 <% if @genre.books.any? %>

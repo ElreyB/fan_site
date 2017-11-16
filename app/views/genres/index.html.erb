@@ -19,9 +19,9 @@
 <% end %>
 
 <div class="well home">
-  <% if @random_genre.books.any? %>
+  <% if @random_genres.books.any? %>
   <h4>Book of the day:</h4>
-    <%= link_to @random_genre.books[rand(@random_genre.books.length)].name, book_path(@random_genre.books[rand(@random_genre.books.length)]) %>
+    <%= link_to @random_genre.name, book_path(@random_genre) %>
   <% else %>
     <p>No favorite book today - check back later!</p>
   <% end %>
