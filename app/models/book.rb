@@ -38,6 +38,17 @@ class Book < ActiveRecord::Base
     find_popular_name
   end
 
+  def self.grab_user_reviews(name)
+    reviews = Review.all
+    reviews.select do |review|
+      review.name == name
+    end
+  end
+
+  def self.get_random_review(reviews)
+    reviews[rand(reviews.length)]
+  end
+
 private
 
   def self.grab_names

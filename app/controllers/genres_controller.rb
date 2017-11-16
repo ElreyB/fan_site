@@ -6,6 +6,8 @@ class GenresController < ApplicationController
     @popular_books = Book.most_popular(@books)
     @random_genre = Genre.random_genre
     @popular_user = Book.find_popular_user
+    @popular_user_reviews = Book.grab_user_reviews(@popular_user)
+    @random_review = Book.get_random_review(@popular_user_reviews)
   end
 
   def show
