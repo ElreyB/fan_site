@@ -32,4 +32,13 @@ describe Book do
     expect(Book.find_popular_user).to eq "Sam"
   end
 
+  it 'should return recent reviews' do
+    book1 = Book.create({name: "Good book", bio: "Good read."})
+    book2 = Book.create({name: "Fabulous book", bio: "Good read."})
+    review1 = Review.create({rating: 2, review: "Sub-par book.", name: "Sam", book_id: book1.id, created_at: "2017-11-16 19:22:16"})
+    review2 = Review.create({rating: 3, review: "Decent read.", name: "Leophold", book_id: book1.id, created_at: "2016-11-16 19:22:16"})
+    review3 = Review.create({rating: 5, review: "Brilliant read.", name: "Sam", book_id: book2.id, created_at: "2013-11-16 19:22:16"})
+    expect(Book.get_recent_reviews.first).to eq [review1]
+  end
+
 end

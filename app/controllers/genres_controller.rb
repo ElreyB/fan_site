@@ -8,6 +8,7 @@ class GenresController < ApplicationController
     @popular_user = Book.find_popular_user
     @popular_user_reviews = Book.grab_user_reviews(@popular_user)
     @random_review = Book.get_random_review(@popular_user_reviews)
+    @recent_reviews = Review.recent_reviews
   end
 
   def show

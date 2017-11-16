@@ -35,3 +35,15 @@
 <% else %>
   <p>There are no reviews!!!!</p>
 <% end %>
+
+<div class="well">
+  <% if @recent_reviews.any? %>
+    <% @recent_reviews.each do |review| %>
+      <ul>
+        <li> <%= review.review %> </li>
+      </ul>
+    <% end %>
+  <% else %>
+    <p>There are no recent reviews.</p>
+  <% end %>
+</div>
