@@ -26,9 +26,9 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    if @book.update(section_params)
+    if @book.update(book_params)
       flash[:notice] = "Your book has been update!!!"
-      redirect_to genre_books_path
+      redirect_to book_path(@book)
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id])
-    @book.destroy_all
+    @book.destroy
     redirect_to genres_path
   end
 

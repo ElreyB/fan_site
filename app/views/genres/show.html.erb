@@ -5,6 +5,7 @@
     <li class="breadcrumb-item"><a href="#" class="oldest_first">Oldest to Newest</a></li>
     <li class="breadcrumb-item"><a href="#" class="newest_first">Newest to Oldest</a></li>
     <li class="breadcrumb-item add"><%= link_to "Add Book", new_genre_book_path(@genre) %></li>
+    <li class="breadcrumb-item add"><a href="#" id="admin">Admin</a></li>
   </ol>
 </nav>
 <% if @genre.books.any? %>
@@ -13,7 +14,13 @@
     <span class="alpha_list hide">
       <% @genre.books.abc_sort.each do |book| %>
         <li>
-          <h3><%= link_to book.name, genre_book_path(@genre, book)%> <small>- <%= book.author %></small></h3>
+          <h3><%= link_to book.name, genre_book_path(@genre, book)%> <small>- <%= book.author %></small>
+          <span class="admin hide">
+            <%= link_to "Edit", edit_genre_book_path(@genre, book) %> |
+              <%= link_to "Delete", genre_book_path(@genre, book),
+              :data => {:confirm => "You sure?",
+                :method => "delete"} %>
+              </span></h3>
         </li>
       <% end %>
     </span>
@@ -25,6 +32,12 @@
     <% @genre.books.oldest_first.each do |book| %>
       <li>
         <h3><%= link_to book.name, genre_book_path(@genre, book)%> <small>- <%= book.author %></small></h3>
+        <span class="admin hide">
+          <p><%= link_to "Edit", edit_genre_book_path(@genre, book) %> |
+            <%= link_to "Delete", genre_book_path(@genre, book),
+            :data => {:confirm => "You sure?",
+              :method => "delete"} %></p>
+            </span>
       </li>
     <% end %>
   </span>
@@ -36,6 +49,12 @@
     <% @genre.books.newest_first.each do |book| %>
       <li>
         <h3><%= link_to book.name, genre_book_path(@genre, book)%> <small>- <%= book.author %></small></h3>
+        <span class="admin hide">
+          <p><%= link_to "Edit", edit_genre_book_path(@genre, book) %> |
+            <%= link_to "Delete", genre_book_path(@genre, book),
+            :data => {:confirm => "You sure?",
+              :method => "delete"} %></p>
+            </span>
       </li>
     <% end %>
   </span>

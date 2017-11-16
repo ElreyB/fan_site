@@ -65,6 +65,11 @@ ul {
   color: black;
 }
 
-.add, .admin {
+.add, .admin{
   float: right;
+}
+
+#book-admin {
+  float: none;
+  text-align: center;
 }

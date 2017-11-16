@@ -6,6 +6,12 @@
 
 <h1 class="book-header"><%= @book.name %></h1>
 <h3 class="book-author">By: <%= @book.author %></h3>
+<span class="admin hide" id="book-admin">
+  <p><%= link_to "Edit", edit_book_path(@book) %> |
+    <%= link_to "Delete", book_path(@book),
+    :data => {:confirm => "You sure?",
+      :method => "delete"} %></p>
+    </span>
 <h3 class="book-header">Reviews:</h3>
 <% if @book.reviews.any? %>
   <ul>

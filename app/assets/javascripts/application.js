@@ -43,7 +43,7 @@ $(document).ready(function(){
 
   $(document).on("click", "#admin", function(e){
     hideAll();
-    $(".admin").toggleClass("hide");
+    $("span.admin").toggleClass("hide");
     e.preventDefault();
   });
 });
