@@ -4,36 +4,42 @@
 
 
 <h1><%= @genre.name %></h1>
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#" class="alphabetically">Alphabetically</a></li>
+    <li class="breadcrumb-item"><a href="#" class="oldest_first">Oldest to Newest</a></li>
+    <li class="breadcrumb-item" aria-current="page"><a href="#" class="newest_first">Newest to Oldest</a></li>
+  </ol>
+</nav>
 <% if @genre.books.any? %>
 
   <ul>
-    <h5 class="alphabetically">Alphabetically</h5>
     <span class="alpha_list hide">
       <% @genre.books.abc_sort.each do |book| %>
         <li>
-          <%= link_to book.name, genre_book_path(@genre, book) %>
+          <h3><%= link_to book.name, genre_book_path(@genre, book)%> <small>- <%= book.author %></small></h3>
         </li>
       <% end %>
     </span>
   </ul>
 
   <ul>
-  <h5 class="oldest_first">Oldest to Newest</h5>
+
   <span class="oldest_list hide">
     <% @genre.books.oldest_first.each do |book| %>
       <li>
-        <%= link_to book.name, genre_book_path(@genre, book) %>
+        <h3><%= link_to book.name, genre_book_path(@genre, book)%> <small>- <%= book.author %></small></h3>
       </li>
     <% end %>
   </span>
 </ul>
 
 <ul>
-  <h5 class="newest_first">Newest to Oldest</h5>
+
   <span class="newest_list hide">
     <% @genre.books.newest_first.each do |book| %>
       <li>
-        <%= link_to book.name, genre_book_path(@genre, book) %>
+        <h3><%= link_to book.name, genre_book_path(@genre, book)%> <small>- <%= book.author %></small></h3>
       </li>
     <% end %>
   </span>

@@ -6,7 +6,7 @@ Book.destroy_all
   genre = Genre.create!(name: Faker::Book.genre, created_at: Faker::Date.between_except(1.year.ago, 1.year.from_now, 21.days.ago))
 
   5.times do |index|
-    books = genre.books.create!(name: Faker::Book.title, bio: Faker::Lorem.paragraph, created_at: Faker::Date.between_except(1.year.ago, 1.year.from_now, 21.days.ago))
+    books = genre.books.create!(name: Faker::Book.title, bio: Faker::Lorem.paragraph, author: Faker::Book.author, created_at: Faker::Date.between_except(1.year.ago, 1.year.from_now, 21.days.ago))
 
     7.times do |index|
       books.reviews.create!(rating: Faker::Number.between(1, 5), review: Faker::Lorem.paragraph(3), name: Faker::Name.name, created_at: Faker::Date.between_except(1.year.ago, 1.year.from_now, 21.days.ago))

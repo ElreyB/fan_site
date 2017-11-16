@@ -16,19 +16,26 @@
 // = require jquery_ujs
 // = require bootstrap-sprockets
 
+function hideAll(){
+  $(".alpha_list, .oldest_list, .newest_list").addClass("hide");
+}
+
 $(document).ready(function(){
   $(document).on("click", ".alphabetically", function(e){
-    $(".alpha_list").toggleClass("hide");
+    hideAll();
+    $(".alpha_list").removeClass("hide");
     e.preventDefault();
   });
 
   $(document).on("click", ".oldest_first", function(e){
-    $(".oldest_list").toggleClass("hide");
+    hideAll();
+    $(".oldest_list").removeClass("hide");
     e.preventDefault();
   });
 
   $(document).on("click", ".newest_first", function(e){
-    $(".newest_list").toggleClass("hide");
+    hideAll();
+    $(".newest_list").removeClass("hide");
     e.preventDefault();
   });
 
