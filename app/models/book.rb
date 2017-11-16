@@ -14,7 +14,7 @@ class Book < ActiveRecord::Base
       ratings.each do |rating|
         sum = rating.rating += sum
       end
-      if (sum / ratings.length) >= 4
+      if (sum / ratings.length) >= 3
         return true
       else
         return false

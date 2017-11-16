@@ -23,11 +23,12 @@
             :data => {:confirm => "You sure?",
               :method => "delete"} %></p>
             </span>
-        <p><%= review.name%></p>
+        <h3><%= review.name%></h3>
         <% review.rating.times{%> <span class="glyphicon glyphicon-star" aria-hidden="true"></span><%}%>
         <hr>
-        <p> <%= review.review %> </p>
-
+        <blockquote class="blockquote">
+          <p>"<%= review.review %>"</p>
+        </blockquote>
       </li>
     <% end %>
   </ul>

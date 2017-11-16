@@ -15,49 +15,66 @@
     <% end %>
   </div>
 </div>
-
 <% end %>
 
-<div class="well home">
-  <% if @random_genres.books.any? %>
-  <h4>Book of the day:</h4>
-    <%= link_to @random_genre.name, book_path(@random_genre) %>
-  <% else %>
-    <p>No favorite book today - check back later!</p>
-  <% end %>
-</div>
+<div class="row">
+  <div class="sidebar col-md-3">
+    <div class="well" id="popular-books">
+      <h2>Popular Books</h2>
+      <hr>
+      <% if @popular_books.any? %>
+        <% @popular_books.each do |book| %>
+        <ul class="books">
+          <li><%= link_to book.name, book_path(book) %></li>
+        </ul>
+        <% end %>
+      <% else %>
+        <p>There are no reviews!!!!</p>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="well" id="featured-review">
+          <p>Thanks <em> <%= @popular_user %></em> for all your reviews!</p>
+          <blockquote class="blockquote">
+            <p>"<%= @random_review.review %>"</p>
+          </blockquote>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="well home book-of-the-day">
+          <% if @random_genres.books.any? %>
+          <h4>Book of the day:</h4>
+            <%= link_to @random_genre.name, book_path(@random_genre) %>
+            <%= @random_genre.author %>
+          <% else %>
+            <p>No favorite book today - check back later!</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-<div class="well">
-  <p>Thanks <em> <%= @popular_user %></em> for all your reviews! Reading rules!</p>
-  <p> <%= @random_review.review %> </p>
-</div>
+    <%= image_tag("hp.jpg", class: "image") %>
+    <%= image_tag("blue.jpg", class: "image") %>
+    <%= image_tag("tree.jpg", class: "image") %>
+    <%= image_tag("wind.jpg", class: "image") %>
 
-
-
-
-
-
-
-<h2>Popular Books</h2>
-
-<% if @popular_books.any? %>
-  <% @popular_books.each do |book| %>
-  <ul>
-    <li><%= link_to book.name, book_path(book) %></li>
-  </ul>
-  <% end %>
-<% else %>
-  <p>There are no reviews!!!!</p>
-<% end %>
-
-<div class="well">
-  <% if @recent_reviews.any? %>
-    <% @recent_reviews.each do |review| %>
-      <ul>
-        <li> <%= review.review %> </li>
-      </ul>
-    <% end %>
-  <% else %>
-    <p>There are no recent reviews.</p>
-  <% end %>
+    <div class="well">
+      <h2>Recent Reviews</h2>
+      <% if @recent_reviews.any? %>
+        <% @recent_reviews.each do |review| %>
+          <ul>
+            <blockquote class="blockquote">
+              <li>"<%= review.review %>"
+              <footer class="blockquote-footer"> <%= review.name %> </footer> </li>
+          </blockquote>
+          </ul>
+        <% end %>
+      <% else %>
+        <p>There are no recent reviews.</p>
+      <% end %>
+    </div>
+  </div>
 </div>
